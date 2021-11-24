@@ -7,11 +7,6 @@ Polynom::Polynom()
 {
     koef = NULL;
 }
-
-Polynom::~Polynom()
-{
-    delete[]koef;
-}
 Polynom::Polynom(int an)
 {
     int i;

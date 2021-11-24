@@ -9,7 +9,6 @@ public:
     Polynom();
     Polynom(int an);//конструктор с параметрами
     Polynom(const Polynom&); //копирования
-    ~Polynom();//деструктор
     int getn(); //функция получения степени полинома
     double getkoef(int); //функция получения коэффициента при i-й степени
     Polynom operator+(const Polynom&);   //оператор сложения двух полиномов
