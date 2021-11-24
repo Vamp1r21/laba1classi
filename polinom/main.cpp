@@ -9,12 +9,6 @@ int main()
     int n, m,t,y;
     cout << "¬ведите степень полинома A и степень полинома B:" << '\n';
     cin >> n >> m;
-    n++;
-    m++;
-    double* mas = new double[n];
-    double* mas1 = new double[m];
-    cout << "¬ведите степень полинома A и степень полинома B:" << '\n';
-    cin >> n >> m;
     Polynom A(n), B(m), D, K, Y;
     cout << "¬ведите коэфициенты полинома A:" << '\n';
     cin >> A;
