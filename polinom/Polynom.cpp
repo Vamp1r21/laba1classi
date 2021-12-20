@@ -7,6 +7,10 @@ Polynom::Polynom()
 {
     koef = NULL;
 }
+Polynom::~Polynom()
+{
+    delete[]koef;
+}
 Polynom::Polynom(int an)
 {
     int i;
@@ -55,6 +59,42 @@ Polynom Polynom::operator-(const Polynom& t) //оператор вычитания А-В
         return Z;
     }
 }
+Polynom Polynom::operator-=(const Polynom& t) //оператор вычитания А-В
+{
+    int i;
+    if (n >= t.n)//А>B
+    {
+        Polynom Z = *this;
+        for (i = 0; i < n; i++)
+        {
+            Z.koef[i] = koef[i];
+        }
+        for (i = 0; i <= t.n; i++)
+            Z.koef[i] -= t.koef[i];
+        for (i = n + 1; i <= t.n; i++)
+            Z.koef[i] -= t.koef[i];
+        for (i = 0; i < n; i++)
+        {
+            koef[i] = Z.koef[i];
+        }
+        return Z;
+    }
+    else//B>A
+    {
+        Polynom Z(*this);
+        for (i = 0; i < n; i++)
+        {
+            Z.koef[i] = t.koef[i];
+        }
+        for (i = 0; i <= t.n; i++)
+            Z.koef[i] -= koef[i];
+        for (i = 0; i < n; i++)
+        {
+            t.koef[i] = Z.koef[i];
+        }
+        return Z;
+    }
+}
 Polynom Polynom::operator+(const Polynom& t)//оператор сложения A+B
 {
     int i;
@@ -70,6 +110,32 @@ Polynom Polynom::operator+(const Polynom& t)//оператор сложения A+B
         Polynom Z = t;
         for (i = 0; i <= n; i++)
             Z.koef[i] = t.koef[i] + koef[i];
+        return Z;
+    }
+}
+Polynom Polynom::operator+=(const Polynom& t)//оператор сложения A+B
+{
+    int i;
+    if (n >= t.n)//A>B
+    {
+        Polynom Z = *this;
+        for (i = 0; i < n; i++)
+        {
+            Z.koef[i] = koef[i];
+        }
+        for (i = 0; i <= n; i++)
+            Z.koef[i] +=t.koef[i];
+        return Z;
+    }
+    else//A<B
+    {
+        Polynom Z = t;
+        for (i = 0; i < n; i++)
+        {
+            Z.koef[i] = t.koef[i];
+        }
+        for (i = 0; i <= n; i++)
+            Z.koef[i] += koef[i];
         return Z;
     }
 }
@@ -93,6 +159,28 @@ Polynom Polynom::operator = (const Polynom& t)
             koef[i] = t.koef[i];
     }
     return *this;
+}
+Polynom Polynom::operator > (const Polynom& t)
+{
+    int f = 0, h = 0;
+    int g = 0;
+    for (int i = 0; i < n; i++)
+    {
+        f += koef[i];
+    }
+    for (int i = 0; i < n; i++)
+    {
+        h += t.koef[i];
+    }
+    if (f > h)
+    {
+        g = 1;
+    }
+    else
+    {
+        g = 0;
+    }
+    return g;
 }
 istream& operator>>(istream& s, Polynom& c)// перегруженный оператор ввода
 {

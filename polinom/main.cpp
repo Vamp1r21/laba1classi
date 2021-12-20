@@ -17,7 +17,10 @@ int main()
     cout << "Многочлен А:" << setw(5) << A << '\n';
     cout << "Многочлен B:" << setw(5) << B << '\n';
     cout << "Многочлен D=A+B:" << setw(5) << (D = A + B) << '\n';
+    cout << "Многочлен A+=B:" << setw(5) << (A+=B) << '\n';
     cout << "Многочлен K=A-B:" << setw(5) << (K = A - B) << '\n';
+    cout << "Многочлен A-=B:" << setw(5) << (A-=B) << '\n';
     cout << "Многочлен Y=A*B:" << setw(5) << (Y = A * B) << '\n';
+    cout << "Многочлен A>B:" << setw(5) << (A>B) << '\n';
     system("pause");
 }
