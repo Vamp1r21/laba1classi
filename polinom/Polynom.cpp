@@ -148,6 +148,25 @@ Polynom Polynom::operator*(const Polynom& t)//оператор умножения А*В
             Y.koef[i + j] += koef[i] * t.koef[j];
     return Y;
 }
+Polynom Polynom::operator*=(const Polynom& t)//оператор умножения А*В
+{
+    int i, j, s = 0;
+    Polynom Z = *this;
+    Polynom Y(n + t.n);
+    for (i = 0; i <= n; i++) {
+        for (j = 0; j <= t.n; j++){
+
+            for (int k = 0; k < n;k++)
+            {
+                Z.koef[k] = koef[k];
+            }
+        Z.koef[i] *= t.koef[j];
+        Y.koef[i + j] += Z.koef[i];
+        }
+    }
+
+    return Y;
+}
 Polynom Polynom::operator = (const Polynom& t)
 {
     if (this != &t)
@@ -159,28 +178,6 @@ Polynom Polynom::operator = (const Polynom& t)
             koef[i] = t.koef[i];
     }
     return *this;
-}
-Polynom Polynom::operator > (const Polynom& t)
-{
-    int f = 0, h = 0;
-    int g = 0;
-    for (int i = 0; i < n; i++)
-    {
-        f += koef[i];
-    }
-    for (int i = 0; i < n; i++)
-    {
-        h += t.koef[i];
-    }
-    if (f > h)
-    {
-        g = 1;
-    }
-    else
-    {
-        g = 0;
-    }
-    return g;
 }
 istream& operator>>(istream& s, Polynom& c)// перегруженный оператор ввода
 {

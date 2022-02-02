@@ -21,6 +21,6 @@ int main()
     cout << "Многочлен K=A-B:" << setw(5) << (K = A - B) << '\n';
     cout << "Многочлен A-=B:" << setw(5) << (A-=B) << '\n';
     cout << "Многочлен Y=A*B:" << setw(5) << (Y = A * B) << '\n';
-    cout << "Многочлен A>B:" << setw(5) << (A>B) << '\n';
+    cout << "Многочлен A*=B:" << setw(5) << (A *= B) << '\n';
     system("pause");
 }

@@ -19,12 +19,6 @@ public:
     Polynom operator-=(const Polynom&);   //оператор вычитания двух полиномов
     Polynom operator*=(const Polynom&); // оператор умножения
     Polynom operator=(const Polynom&);   
-    Polynom operator == (const Polynom&);   
-    Polynom operator <(const Polynom&);   
-    Polynom operator >(const Polynom&);
-    Polynom operator <=(const Polynom&);
-    Polynom operator>=(const Polynom&); 
-    Polynom operator!=(const Polynom&); 
     friend ostream& operator<<(ostream& s, const Polynom& c); // перегруженный оператор вывода
     friend istream& operator>>(istream& s, Polynom& c); // перегруженный оператор ввода
 };
